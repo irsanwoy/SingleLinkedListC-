@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+struct Buku{
+	string judul, pengarang;
+	int tahunTerbit;
+	
+	Buku* next;
+}*head, *tail, *cur;
+
+void createSingleLinkedList(string judul,string pengarang,int tB){
+	head = new Buku();
+	head->judul = judul;
+	head->pengarang = pengarang;
+	head->tahunTerbit = tB;
+	head->next = NULL;
+	tail = head;
+}
+
+void printSingleLinkedList(){
+	cur = head;
+	while( cur != NULL ){
+		cout<<"=====Buku===="<<endl;
+		cout<<"Judul     : "<<cur->judul<<endl;
+		cout<<"Pengarang : "<<cur->pengarang<<endl;
+		cout<<"Tahun     : "<<cur->tahunTerbit<<endl;
+		cur = cur->next;
+	}
+}
+
+int main(){
+	createSingleLinkedList("Dilan","Bapak Dilan",2012);
+	printSingleLinkedList();
+}
